@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Document details-->
+    <title>Squabble</title>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Competitive Wordle Game">
+    <meta name="keywords" content="Wordle">
+    <meta name="author" content="Jake Leicht">
+
+    <!--Stylesheets (CSS)-->
+    <link rel="stylesheet" href="index.css">
+
+    <!--Favicon-->
+    <link rel="icon" type="image/jpeg" href="/images/squabble-favicon.jpeg" sizes="260x260">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<!-- Goal: Responsive down to 340px -->
+<body>
+    <div class="page-content">
+        <div class="header-container">
+            <div class="header clipped" id="header-top">
+                <span class="letter-container">
+                  <span id="letter-s-top" class="letter"><strong>S</strong></span>
+                <span id="letter-q-top" class="letter"><strong>Q</strong></span>
+                </span>
+                <span class="letter-container">
+                  <span id="letter-u-top" class="letter"><strong>U</strong></span>
+                <span id="letter-a-top" class="letter"><strong>A</strong></span>
+                </span>
+                <span class="letter-container">
+                  <span id="letter-b-1-top" class="letter"><strong>B</strong></span>
+                <span id="letter-b-2-top" class="letter"><strong>B</strong></span>
+                </span>
+                <span class="letter-container">
+                  <span id="letter-l-top" class="letter"><strong>L</strong></span>
+                <span id="letter-e-top" class="letter"><strong>E</strong></span>
+                </span>
+            </div>
+            <div class="header" id="header-bottom">
+                <span class="letter-container">
+            <span id="letter-s-bottom" class="letter"><strong>S</strong></span>
+                <span id="letter-q-bottom" class="letter"><strong>Q</strong></span>
+                </span>
+                <span class="letter-container">
+            <span id="letter-u-bottom" class="letter"><strong>U</strong></span>
+                <span id="letter-a-bottom" class="letter"><strong>A</strong></span>
+                </span>
+                <span class="letter-container">
+            <span id="letter-b-1-bottom" class="letter"><strong>B</strong></span>
+                <span id="letter-b-2-bottom" class="letter"><strong>B</strong></span>
+                </span>
+                <span class="letter-container">
+            <span id="letter-l-bottom" class="letter"><strong>L</strong></span>
+                <span id="letter-e-bottom" class="letter"><strong>E</strong></span>
+                </span>
+                <span id="header-sideNote"><strong>Clone</strong></span>
+            </div>
+            <div id="main-content-page" class="main-content mainPage">
+                <div id="blitz-container-btn" class="one-btn">
+                    <button type="button" id="blitz-btn"><strong>Blitz</strong></button>
+                </div>
+                <div id="royale-container-btn" class="one-btn">
+                    <button type="button" id="squabbleRoyale-btn"><strong>Squabble Royale</strong></button>
+                </div>
+                <div id="mobileViewContent">
+                    <p><strong>Mobile support is not here yet! Try playing on a bigger screen</strong></p>
+                </div>
+                <div class="one-btn">
+                    <button type="button" class="guestBtn" id="guest-btn"><i id="user-icon" class="fa-solid fa-user"></i><strong>Guest</strong><i id="arrow-icon" class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="two-btn">
+                    <button type="button" class= "hasPopUp" id="how-to-play-btn"><strong>?</strong></button>
+                    <button type="button" id="settings-btn"><strong>Settings</strong></button>
+                </div>
+                <div class="one-btn">
+                    <button type="button" class= "hasPopUp" id="comingSoon-btn"><strong>Coming Soon</strong></button>
+                </div>
+            </div>
+            <div id="blitz-btn-page-content" class="main-content">
+                <div id="blitz-to-main-container" class="two-btn textChange">
+                    <button class="arrow-icon" id="blitz-to-main"><i class="fa-solid fa-angle-left"></i></button>
+                    <strong>SQUABBLE BLITZ</strong>
+                </div>
+                <div class="one-btn">
+                    <button type="button" id="createGame-blitzPage-btn"><strong>Create Game</strong></button>
+                </div>
+                <div class="two-btn">
+                    <input type="text" class="label" id="join-game-blitz-page-lbl" placeholder="Join Game">
+                    <button class="arrow-icon" id="join-game-blitz-page-btn"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="one-btn">
+                    <button type="button" id="findGame-blitzPage-btn"><strong>Find Game</strong></button>
+                </div>
+            </div>
+            <div id="squabbleRoyale-btn-page-content" class="main-content">
+                <div class="two-btn textChange"><button class="arrow-icon" id="royale-to-main"><i class="fa-solid fa-angle-left"></i></button>
+                    <strong>SQUABBLE ROYALE</strong>
+                </div>
+                <div class="one-btn"><button id="royalePage-createGame-btn"><strong>Create Game</strong></button></div>
+                <div class="two-btn">
+                    <input type="text" class="label" id="join-game-squabbleRoyale-page-lbl" placeholder="Join Game">
+                    <button class="arrow-icon"><i id="join-game-squabbleRoyale-page-btn" class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="one-btn"><button id="royalePage-findGame-btn"><strong>Find Game</strong></button></div>
+            </div>
+            <div id="guest-btn-page-content" class="main-content textChange">
+                <div>
+                    <button class="arrow-icon" id="arrow-icon-guest-to-main-page"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="guestBtn" id="guestPage-guest-btn"><i id="guest-page-user-icon" class="fa-solid fa-user"></i><strong>Guest</strong></button>
+                </div>
+                <strong>Sign up with</strong>
+                <div id="socialMedia-container" class="three-btn">
+                    <a href="https://twitter.com/"><button class="socialMedia-btn" id="twitter-btn"><i class="fa-brands fa-twitter"></i></button></a>
+                    <a href="https://www.google.com/"><button class="socialMedia-btn" id="google-btn"><i class="fa-brands fa-google"></i></button></a>
+                    <a href="https://www.facebook.com/"><button class="socialMedia-btn" id="facebook-btn"><i class="fa-brands fa-facebook-f"></i></button></a>
+                </div>
+                <strong>- OR -</strong>
+                <div>
+                    <input type="text" class="label" id="email-lbl" placeholder="EMAIL">
+                    <button class="arrow-icon" id="guestPage-help-btn">?</button>
+                </div>
+                <div>
+                    <input type="text" class="label" id="password-lbl" placeholder="PASSWORD">
+                    <button class="arrow-icon"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </div>
+            <div id="settings-btn-page-content" class="main-content">
+                <div id="setting-btn-half">
+                    <div class="textChange" id="settings-page-btn">
+                        <button class="arrow-icon" id="settings-to-main-page"><i class="fa-solid fa-angle-left"></i></button>
+                        <strong id="arrow-icon-txt">Settings</strong>
+                    </div>
+                    <div class="textChange">
+                        <input title="Dark Mode btn" type="checkbox" class="checkbox" id="darkMode-btn" name="darkMode" checked>
+                        <label id="darkMode-lbl" for="darkMode"><strong>Dark Mode</strong></label>
+                    </div>
+                    <div class="textChange">
+                        <input title="Color Blind Mode btn" type="checkbox" class="checkbox" id="colorBlindMode-btn" name="colorBlindMode">
+                        <label id="colorBlindMode-lbl" for="colorBlindMode"><strong>Color Blind Mode</strong></label>
+                    </div>
+                </div>
+                <div id="example">
+                    <div class="example-section">
+                        <h6 class="example-cell wrong-position example-cell-text"><strong>M</strong>
+                            <p class="colorBlind-icon">~</p>
+                        </h6>
+                        <p class="example-cell example-description"><strong>Wrong Position</strong></p>
+                    </div>
+                    <div class="example-section">
+                        <h6 class="example-cell right-letter example-cell-text"><strong>O</strong>
+                            <p class="colorBlind-icon">T</p>
+                        </h6>
+                        <p class="example-cell example-description"><strong>Right Position</strong></p>
+                    </div>
+                    <div class="example-section">
+                        <h6 class="example-cell wrong-letter example-cell-text"><strong>G</strong></h6>
+                        <p class="example-cell example-description"><strong>Wrong Letter</strong></p>
+                    </div>
+                    <div class="example-section">
+                        <h6 class="example-cell wrong-position example-cell-text"><strong>U</strong>
+                            <p class="colorBlind-icon">~</p>
+                        </h6>
+                        <p class="example-cell example-description"><strong>Wrong Position</strong></p>
+                    </div>
+                    <div class="example-section">
+                        <h6 class="example-cell wrong-letter example-cell-text"><strong>L</strong></h6>
+                        <p class="example-cell example-description"><strong>Wrong Letter</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div id="how-to-play-container" class="pop-up-background hasPopUp">
+                <div id="how-to-play-content" class="pop-up">
+                    <h1><strong>How to Play</strong></h1>
+                    <ul>
+                        <li><strong>Keep guessing words until you're the last one standing.</strong></li>
+                        <li><strong>Guess right and deal damage, guess wrong and take damage.</strong></li>
+                        <li><strong>You take 1 damage every second, and heal damage when you guess right.</strong></li>
+                        <li><strong>Yellow letters indicate that the letter is in the word in a different position.</strong></li>
+                        <li><strong>Green letters indicate that the letter is in the correct position.</strong></li>
+                        <li><strong>Blitz mode can be played with 2-5 players, Royale mode can be played with 6-99 players.</strong></li>
+                    </ul>
+                    <button class="close-btn" id="howToPlay-close-btn"><strong>Close</strong></button>
+                </div>
+            </div>
+            <div id="comingSoon-container" class="pop-up-background hasPopUp">
+                <div id="comingSoon-content" class="pop-up">
+                    <h1><strong>Coming Soon</strong></h1>
+                    <ul>
+                        <li><strong>Mobile / better tablet support</strong></li>
+                        <li><strong>Damage balancing</strong></li>
+                        <li><strong>ELO ranking</strong></li>
+                        <li><strong>Game history</strong></li>
+                        <li><strong>Solo / daily mode</strong></li>
+                        <li><strong>Better matchmaking</strong></li>
+                    </ul>
+                    <button class="close-btn" id="comingSoon-close-btn"><strong>Close</strong></button>
+                </div>
+            </div>
+            <div id="gamePage-container" class="game">
+                <div>
+                    <h1 id="game-title">Guest</h1>
+                </div>
+                <div id="letter-container-row-1" class="row row-1">
+                    <span class="game-letter-container col-1">
+                        <input id="1x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-1x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-1x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input id="1x2" type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-1x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-1x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input id="1x3" type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-1x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-1x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input id="1x4" type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-1x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-1x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input id="1x5" type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-1x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-1x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div id="letter-container-row-2" class="row row-2">
+                    <span class="game-letter-container col-1">
+                        <input id="2x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-2x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-2x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-2x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-2x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-2x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-2x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-2x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-2x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-2x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-2x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div id="letter-container-row-3" class="row row-3">
+                    <span class="game-letter-container col-1">
+                        <input id="3x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-3x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-3x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-3x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-3x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-3x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-3x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-3x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-3x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-3x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-3x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div id="letter-container-row-4" class="row row-4">
+                    <span class="game-letter-container col-1">
+                        <input id="4x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-4x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-4x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-4x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-4x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-4x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-4x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-4x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-4x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-4x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-4x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div id="letter-container-row-5" class="row row-5">
+                    <span class="game-letter-container col-1">
+                        <input id="5x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-5x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-5x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-5x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-5x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-5x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-5x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-5x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-5x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-5x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-5x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div id="letter-container-row-6" class="row row-6">
+                    <span class="game-letter-container col-1">
+                        <input id="6x1" type="text" class="game-letter col-1" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-6x1" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-6x1" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-2">
+                        <input type="text" class="game-letter col-2" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-6x2" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-6x2" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-3">
+                        <input type="text" class="game-letter col-3" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-6x3" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-6x3" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-4">
+                        <input type="text" class="game-letter col-4" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-6x4" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-6x4" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                    <span class="game-letter-container col-5">
+                        <input type="text" class="game-letter col-5" placeholder="" maxlength="1">
+                        <p id="correctLocation-icon-6x5" class="colorBlind-icon-game correctLocation"><i class="fa-solid fa-check"></i></p>
+                        <p id="correctLetter-icon-6x5" class="colorBlind-icon-game correctLetter">~</p>
+                    </span>
+                </div>
+                <div>
+                    <button id="wordSelect-btn" class="game-btns"><strong>Click for Word</strong></button>
+                    <button id="game-to-main-btn" class="game-btns"><strong>Back to Main</strong></button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="spin-icon" id="leftHalf">
+                <p class="spin-piece spinning-piece">{</p>
+                <p class="spin-piece spin-center">O</p>
+                <p class="spin-piece spinning-piece">}</p>
+            </div>
+            <div id="rightHalf">
+                <h6>Game by Ottomated</h6>
+                <span class="footer-icon" id="footer-icon-twitter"><a href="https://twitter.com/Ottomated_"><i class="fa-brands fa-twitter icon"></i></a></span>
+                <span class="footer-icon" id="footer-icon-youtube"><a href="https://www.youtube.com/c/Ottomated"><i class="fa-brands fa-youtube icon"></i></a></span>
+                <span class="footer-icon" id="footer-icon-twitch"><a href="https://www.twitch.tv/Ottomated"><i class="fa-brands fa-twitch icon"></i></a></span>
+            </div>
+        </footer>
+        <svg id="svg">
+          <defs id="defs">
+              <clipPath id="inset">
+                  <rect y="12" x="0" width="90" height="80"/>
+                  <rect y="12" x="190" width="90" height="80"/>
+                  <rect y="12" x="379" width="90" height="80"/>
+                  <rect y="12" x="568" width="90" height="80"/>
+              </clipPath>
+          </defs>
+        </svg>
+    </div>
+</body>
+<!--Font Awesome Icons-->
+<script src="https://kit.fontawesome.com/f06ad63a54.js" crossorigin="anonymous"></script>
+<!--jQuery Code-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="index.js"></script>
+</html>
