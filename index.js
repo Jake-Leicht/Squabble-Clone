@@ -191,6 +191,9 @@ $(document).ready(function() {
         guessCount = 0;
         /*Reset icons*/
         $(".colorBlind-icon-game").hide();
+        /*Reset Title*/
+        $("#game-title").text("Guest");
+        $("#game-title").css("color", "black");
         /*Reset console*/
         console.clear();
     }
@@ -354,7 +357,7 @@ $(document).ready(function() {
 
     function gameLose(){
         $("#game-title").text("You Lose");
-        $("game-title").cs("color", "red");
+        $("#game-title").css("color", "red");
         // resetGame();
         return true;
     }
@@ -373,7 +376,6 @@ $(document).ready(function() {
         }
     }
 
-    /*Issue with page switching back tom main menu*/
     function switchPages(currentPage, nextPage){
     if (containsClass(nextPage, "hasPopUp") === true || containsClass(nextPage, "hasPopUp") === true){
         currentPage.hide();
